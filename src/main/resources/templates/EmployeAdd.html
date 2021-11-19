@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+<form method="post" th:action="@{/EmployeAdd}" th:object="${employe}">
+<input th:field="*{codeEmploye}">
+<label ></label>
+<input th:field="*{nomEmploye}" class="form-control">
+<select th:field="*{employeSup.codeEmploye}">
+<option  th:each="prod,iterStat : ${employes}"  th:value="${prod.codeEmploye}" th:text="${prod.nomEmploye}"></option>
+</select>
+<input type="submit">
+</form>
+</body>
+</html>
