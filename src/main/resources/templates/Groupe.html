@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeLeaf.org">
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
@@ -16,8 +16,6 @@
 <ul class="list-group">
   <li th:each="groupe:${groupe.employe}"  class="list-group-item d-flex justify-content-between align-items-center">
     <span th:text="${groupe.nomEmploye}"></span>
-  
-    <span class="badge bg-primary rounded-pill"><i class="bi bi-person-x-fill"></i></span>
   </li>
   
 </ul>
@@ -28,6 +26,13 @@ Autre Employes
 <li th:each="groupe:${grp}" th:text="${groupe.nomEmploye}"></li>
 
 </ul>
+<form th:action="@{/AddConfirmer}" method="post">
+<input type="hidden" name="id_grp" th:value="${groupe.codeGroupe}">
+<select name="id_emp">
+<option  th:each="groupe:${grp}"  th:value="${groupe.codeEmploye}" th:text="${groupe.nomEmploye}"></option>
+</select>
+<input type="submit" value="Add to Group">
+</form>
 </div>
 
 

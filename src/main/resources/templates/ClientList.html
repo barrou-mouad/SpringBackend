@@ -7,18 +7,16 @@
 </head>
 <body>
 <h2>Client List</h2>
-<ul class="my-4">
+<div class="w-50 mx-auto ">
 
-<li th:each="groupe:${clients}" th:text="${groupe.nomClient}"></li>
-
-</ul>
-<!--  
+ 
 <div class="list-group my-5">
  
-  <a th:each="groupe:${groupes}" th:href="@{GroupeDetails (id=${groupe.codeGroupe})}" class="list-group-item list-group-item-action"  ><span th:text="${groupe.nomGroupe}"></span></a>
+  <a th:each="groupe:${clients}" th:href="@{ClientDetails (id=${groupe.codeClient})}" class="list-group-item list-group-item-action"  ><span th:text="${groupe.nomClient}"></span></a>
 
 </div>
--->
-<a th:href="@{ClientAdd}">Ajouter un client</a>
+</div>
+<div class="w-50 mx-auto"><a th:href="@{clientAdd}" class="btn btn-primary w-50 mx-auto">Ajouter un client</a></div>
+
 </body>
 </html>

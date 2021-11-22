@@ -6,8 +6,8 @@
 <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
 </head>
 <body>
-<form th:action="@{}" method="post" th:object="">
-<input type="text" th:field=""> 
+<form th:action="@{clients}" method="post" th:object="${client}">
+<input type="text" th:field="*{nomClient}"> 
 <input type="submit" value="Ajouter le Client">
 </form>
 </body>

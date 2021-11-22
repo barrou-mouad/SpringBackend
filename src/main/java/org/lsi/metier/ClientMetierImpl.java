@@ -26,4 +26,10 @@ public class ClientMetierImpl implements ClientMetier {
 		return clientRepository.findAll();
 	}
 
+	@Override
+	public Client ClientById(long id) {
+		// TODO Auto-generated method stub
+		return clientRepository.findById(id).get();
+	}
+
 }

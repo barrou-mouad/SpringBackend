@@ -18,6 +18,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
@@ -52,24 +53,11 @@ public String GroupeList(Model model,@RequestParam Long id) {
 	model.addAttribute("grp",emp.getNot(id));
 	return "Groupe";
 }
-@GetMapping("/retirer")
-public String GroupeList() {
-//Long id=Integer.toUnsignedLong(1);
-//Groupe grp1=new Groupe("mouad");
-//grp1.setNomGroupe("new");
-//List<Employe> e=(List<Employe>) grp1.getEmploye();
-//id=Integer.toUnsignedLong(4);
-
-	
-//e.add(emp.EmployeById(id));
-//Collection<Employe> e1=new Collections();
-//List<Employe> e1=new ArrayList<Employe>();
-//e1.add(emp.EmployeById(id));
-//System.out.println(e1.get(0).getNomEmploye());
-//grp1.setEmploye(e1);
-//Groupe gr=grp.save(grp1);
-//System.out.println(gr.getEmploye().size());
-
-//grp.save(new Groupe("mmm"));
-return "ClientDetails";
-}}
+@PostMapping("/AddConfirmer")
+public String GroupeList(@RequestParam("id_emp") Long id_emp,@RequestParam("id_grp") Long id_grp) {
+Groupe grp1=grp.getById(id_grp);
+grp1.getEmploye().add(emp.EmployeById(id_emp));
+grp.save(grp1);	
+return "redirect:/GroupeDetails?id="+id_grp;
+}
+}

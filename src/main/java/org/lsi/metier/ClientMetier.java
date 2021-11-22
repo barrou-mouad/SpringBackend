@@ -8,6 +8,7 @@ public interface ClientMetier {
 
 	public Client saveClient(Client c);
 	public List<Client> listClient();
+	public Client ClientById(long id);
 	
 }
 

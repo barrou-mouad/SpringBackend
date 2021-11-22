@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="" th:object=${compte}>
+<input th:field="*{solde}">
+<input th:field="*{decouvert}">
+<select th:field="*{client.codeClient}">
+<option  th:each="client : ${clients}"  th:value="${client.codeClient}" th:text="${client.nomClient}"></option>
+</select>
+<input>
+<input>
+<input>
+</form>
+</body>
+</html>
