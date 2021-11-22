@@ -1,6 +1,7 @@
 package org.lsi.services;
 
 import javax.websocket.server.PathParam;
+import org.lsi.entities.CompteEpargne;
 
 import org.lsi.entities.Compte;
 import org.lsi.metier.ClientMetier;
@@ -40,5 +41,11 @@ public class CompteRestService {
 		model.addAttribute("compte",new CompteCourant());
 		model.addAttribute("clients",client.listClient());
 		return "CompteCourant" ;
+	}
+	@GetMapping("/compteEpargneAdd")
+	public String CompteEpargne (Model model) {
+		model.addAttribute("compte",new CompteEpargne());
+		model.addAttribute("clients",client.listClient());
+		return "CompteEpargne" ;
 	}
 }

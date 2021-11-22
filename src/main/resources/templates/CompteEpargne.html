@@ -6,6 +6,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form action="" th:object=${compte}>
+<input th:field="*{solde}">
+<select th:field="*{client.codeClient}">
+<option  th:each="client : ${clients}"  th:value="${client.codeClient}" th:text="${client.nomClient}"></option>
+</select>
 
+</form>
 </body>
 </html>
