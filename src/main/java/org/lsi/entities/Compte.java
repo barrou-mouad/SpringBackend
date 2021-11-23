@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -28,6 +30,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 })
 public abstract class Compte implements Serializable {
 	@Id	
+
 	private String codeCompte;
 	private Date dateCreation;
 	private double solde;

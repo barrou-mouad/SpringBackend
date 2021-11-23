@@ -2,6 +2,7 @@ package org.lsi.metier;
 
 
 import java.util.Date;
+import java.util.List;
 
 import org.lsi.dao.CompteRepository;
 import org.lsi.entities.Compte;
@@ -26,6 +27,11 @@ public class CompteMetierImpl implements CompteMetier {
 	public Compte getCompte(String code) {
 		// TODO Auto-generated method stub
 		return compteRepository.findById(code).orElse(null);
+	}
+	@Override
+	public List<Compte> getall() {
+		// TODO Auto-generated method stub
+		return compteRepository.findAll();
 	}
 
 	
