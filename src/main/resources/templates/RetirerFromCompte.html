@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form th:action="@{retrait}" method="PUT" >
+<label>Montant</label>
+<input name="montant">
+<label>L'employe</label>
+<input type="hidden" name="code" th:value="${mycompte}">
+<select name="codeEmp">
+<option  th:each="employe : ${employes}"  th:value="${employe.codeEmploye}" th:text="${employe.nomEmploye}"></option>
+</select>
+<!--
+<select name="codeEmp">
+<option  th:each="compte : ${comptes}"  th:value="${compte.codeCompte}" th:text="${'Groupe '+ compte.CodeCompte}"></option>
+</select>
+-->
+<input type="submit">
+</form>
+</body>
+</html>

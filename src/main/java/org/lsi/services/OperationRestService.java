@@ -2,6 +2,7 @@ package org.lsi.services;
 
 import javax.websocket.server.PathParam;
 
+import org.lsi.entities.Retrait;
 import org.lsi.entities.Versment;
 import org.lsi.metier.CompteMetier;
 import org.lsi.metier.EmployeMetier;
@@ -43,20 +44,22 @@ public class OperationRestService {
 		 operationMetier.verser(code, montant, codeEmp);
 		 return "index";
 	}
-	@RequestMapping(value="/retrait",method=RequestMethod.PUT) 
-	public boolean retirer(
+	@RequestMapping(value="/retrait",method=RequestMethod.GET) 
+	public String retirer(
 			@RequestParam String code,
 			@RequestParam double montant,
 			@RequestParam Long codeEmp) {
-		return operationMetier.retirer(code, montant, codeEmp);
+	if( operationMetier.retirer(code, montant, codeEmp)) 	return "index";
+	else return "erreur";	
 	}
-	@RequestMapping(value="/virement",method=RequestMethod.PUT) 
-	public boolean virement(
+	@RequestMapping(value="/virement",method=RequestMethod.GET) 
+	public String virement(
 			@RequestParam String cpte1,
 			@RequestParam String cpte2,
 			@RequestParam double montant,
 			@RequestParam Long codeEmp) {
-		return operationMetier.virement(cpte1, cpte2, montant, codeEmp);
+		 operationMetier.virement(cpte1, cpte2, montant, codeEmp);
+		 return "index";
 	} 
   @GetMapping("VerserPage")
   public String VerserPage(Model model,@RequestParam long idCompte) {
@@ -64,5 +67,22 @@ public class OperationRestService {
    model.addAttribute("mycompte",idCompte);
    model.addAttribute("verser", new Versment());
    return "VerserToCompte";
+   
+  }
+  @GetMapping("retirerPage")
+  public String VirerPage(Model model,@RequestParam long idCompte) {
+   model.addAttribute("employes", employeMetier.listEmployes());
+   model.addAttribute("mycompte",idCompte);
+   model.addAttribute("comptes",compteMetier.getall());
+   model.addAttribute("verser", new Retrait());
+   return "RetirerFromCompte";
+  }
+  @GetMapping("VirementPage")
+  public String VirementPage(Model model,@RequestParam long idCompte) {
+   model.addAttribute("employes", employeMetier.listEmployes());
+   model.addAttribute("mycompte",idCompte);
+   model.addAttribute("comptes",compteMetier.getall());
+   model.addAttribute("verser", new Retrait());
+   return "Virement";
   }
 }
