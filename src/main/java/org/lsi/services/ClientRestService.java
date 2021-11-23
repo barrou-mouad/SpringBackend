@@ -33,6 +33,7 @@ public class ClientRestService {
 	model.addAttribute("clients", clientMetier.listClient())	;
 	return "ClientList";
 	}
+
 	@RequestMapping(value="/clientAdd",method=RequestMethod.GET)
 	public String AddForm(Model model) {
 	model.addAttribute("client", new Client())	;
@@ -42,6 +43,7 @@ public class ClientRestService {
 	@RequestMapping(value="/ClientDetails",method=RequestMethod.GET)
 	public String listClient(Model model,@RequestParam long id) {
     model.addAttribute("client", clientMetier.ClientById(id))	;
+    
 	return "ClientDetails";
 	}
 }

@@ -7,5 +7,12 @@
 </head>
 <body>
 <h1 class="bg bg-success text-center my-5 text-white">Hello <span th:text="${client.nomClient}"></span></h1>
+
+<div class="list-group my-5">
+ 
+  <a th:each="groupe:${client.comptes}" th:href="@{VerserPage (idCompte=${groupe.codeCompte})}"  class="list-group-item list-group-item-action"  ><span th:text="${'Compte numero ' + groupe.codeCompte}"></span></a>
+
+</div>
+
 </body>
 </html>
