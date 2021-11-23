@@ -35,12 +35,13 @@ public class OperationRestService {
 	//		@RequestParam int size) {
 	//	return operationMetier.getOperation(codeCompte, page, size);
 	//}
-	@RequestMapping(value="/versement",method=RequestMethod.PUT)
-	public boolean verser(
+	@RequestMapping(value="/versement",method=RequestMethod.GET)
+	public String verser(
 			@RequestParam String code,
 			@RequestParam double montant,
 			@RequestParam Long codeEmp) {
-		return operationMetier.verser(code, montant, codeEmp);
+		 operationMetier.verser(code, montant, codeEmp);
+		 return "index";
 	}
 	@RequestMapping(value="/retrait",method=RequestMethod.PUT) 
 	public boolean retirer(
