@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+<form th:action="@{clients}" method="post" th:object="${client}">
+<input type="text" th:field="*{nomClient}"> 
+<input type="submit" value="Ajouter le Client">
+</form>
+</body>
+</html>

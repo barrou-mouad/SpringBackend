@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+<h2>Client List</h2>
+<div class="w-50 mx-auto ">
+
+ 
+<div class="list-group my-5">
+ 
+  <a th:each="groupe:${clients}" th:href="@{ClientDetails (id=${groupe.codeClient})}" class="list-group-item list-group-item-action"  ><span th:text="${groupe.nomClient}"></span></a>
+
+</div>
+</div>
+<div class="w-50 mx-auto"><a th:href="@{clientAdd}" class="btn btn-primary w-50 mx-auto">Ajouter un client</a></div>
+
+</body>
+</html>
