@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
 </head>
 <body>
-<h1>Une erreur survenue durant cette opération</h1>
+<ul>
+
+<li th:each="op:${compte.operations}" th:text="${op.montant}"></li>
+</ul>
 </body>
 </html>

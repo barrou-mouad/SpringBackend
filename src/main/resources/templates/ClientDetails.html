@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
 </head>
@@ -10,7 +10,7 @@
 
 <div class="list-group my-5">
  
-  <a th:each="groupe:${client.comptes}" th:href="@{VerserPage (idCompte=${groupe.codeCompte})}"  class="list-group-item list-group-item-action"  ><span th:text="${'Compte numero ' + groupe.codeCompte}"></span></a>
+  <a th:each="groupe:${client.comptes}" th:href="@{CompteDetails (idCompte=${groupe.codeCompte})}"  class="list-group-item list-group-item-action"  ><span th:text="${'Compte numero ' + groupe.codeCompte}"></span></a>
 
 </div>
 

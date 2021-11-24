@@ -8,6 +8,7 @@ import org.lsi.entities.Client;
 import org.lsi.entities.Compte;
 import org.lsi.metier.ClientMetier;
 import org.lsi.metier.CompteMetier;
+import org.lsi.metier.CompteMetierImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.lsi.entities.CompteCourant;
 @Controller
@@ -72,5 +74,12 @@ public class CompteRestService {
 	public String saveCompte1(@ModelAttribute CompteCourant cmpt) {
 		System.out.print(cmpt.getSolde());
 	return 	"CompteCourant";	
+	}
+	// CompteDetails
+	@GetMapping("CompteDetails")
+	public String saveCompte1(@RequestParam(name="idCompte") String code,Model model) {
+		System.out.print(code);
+		model.addAttribute("compte", compteMetier.getCompte(code));
+	return 	"CompteDetails";	
 	}
 }
