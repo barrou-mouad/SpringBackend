@@ -6,7 +6,32 @@
 <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
 </head>
 <body>
-<a th:href="@{/AddCompteCourant}">Compte Courant</a>
-<a th:href="@{/AddCompteEpargne}">Compte Epargne</a>
+<div th:replace="fragments/header :: header"></div>
+<h1>Choisis le type de compte que vou voulez creer:</h1>
+
+<div class="card-group d-flex align-items-center  justify-content-center ">
+<a th:href="@{/compteCourantAdd}" class="btn card text-white bg-primary m-3 " style="max-width: 18rem;">
+  <div class="card-header">Compte Courant</div>
+  <div class="card-body">
+
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</a>
+<a th:href="@{/compteEpargneAdd}" class="btn card text-white bg-dark m-3" style="max-width: 18rem;">
+  <div class="card-header">Compte Epargne</div>
+  <div class="card-body">
+
+    <p class="card-text">Un compte d'épargne est un compte auprès d’une banque, sur lequel vous allez déposer l’argent que vous avez pu économiser.
+
+                         En échange du dépôt de vos économies sur votre compte, votre banque vous paie une rémunération : les intérêts .</p>
+  </div>
+</a>
+</div>
+
 </body>
 </html>
+
+
+
+
+

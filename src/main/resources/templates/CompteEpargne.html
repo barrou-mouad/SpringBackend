@@ -6,6 +6,7 @@
 <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
 </head>
 <body>
+<div th:replace="fragments/header :: header"></div>
 <form th:action="@{compteEpargne}" method="post" th:object=${compte}>
 <input th:field="*{solde}">
 <select th:field="*{client.codeClient}">

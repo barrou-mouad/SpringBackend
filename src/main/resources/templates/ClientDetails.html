@@ -6,6 +6,7 @@
 <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
 </head>
 <body>
+<div th:replace="fragments/header :: header"></div>
 <h1 class="bg bg-success text-center my-5 text-white">Hello <span th:text="${client.nomClient}"></span></h1>
 
 <div class="list-group my-5">

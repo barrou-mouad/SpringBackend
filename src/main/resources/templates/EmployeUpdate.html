@@ -8,6 +8,7 @@
 
 
 <body>
+<div th:replace="fragments/header :: header"></div>
 <form method="post" th:action="@{/EmployeUpdate}" th:object="${employe}">
 <input th:field="*{codeEmploye}">
 <label ></label>

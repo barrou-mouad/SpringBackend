@@ -6,14 +6,20 @@
 <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
 </head>
 <body>
-<form method="post" th:action="@{/EmployeAdd}" th:object="${employe}">
-<input th:field="*{codeEmploye}">
-<label ></label>
-<input th:field="*{nomEmploye}" class="form-control">
-<select th:field="*{employeSup.codeEmploye}">
+<div th:replace="fragments/header :: header"></div>
+
+
+
+
+<form method="post" th:action="@{/EmployeAdd}" th:object="${employe}" class="bg-dark my-5 mx-auto p-4" style="width:440px">
+
+<label class="text-white">Nom Employe</label>
+<input th:field="*{nomEmploye}" class="form-control my-2">
+<label class="text-white my-1">Nom Employe Supérieur</label>
+<select th:field="*{employeSup.codeEmploye}" class="form-select">
 <option  th:each="prod,iterStat : ${employes}"  th:value="${prod.codeEmploye}" th:text="${prod.nomEmploye}"></option>
 </select>
-<input type="submit">
+<input type="submit" class="btn btn-primary my-2">
 </form>
 </body>
 </html>

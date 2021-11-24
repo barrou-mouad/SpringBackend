@@ -6,6 +6,7 @@
 <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
 </head>
 <body>
+<div th:replace="fragments/header :: header"></div>
 <form th:action="@{virement}" method="PUT" >
 <label>Montant</label>
 <input name="montant">

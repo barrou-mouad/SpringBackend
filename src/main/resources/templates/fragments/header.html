@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Navbar Example</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   </head>
+   <body>
+   <div th:fragment="header">
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+         <!-- Brand -->
+         <a class="navbar-brand" href="#">BMC</a>
+
+         <!-- Links -->
+         <ul class="navbar-nav">
+            <li class="nav-item">
+               <a class="nav-link" th:href="@{clientAdd}">khawya</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="#">Home</a>
+            </li>
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+               Ajouter
+               </a>
+               <div class="dropdown-menu">
+                  <a class="dropdown-item" th:href="@{clientAdd}">Clients</a>
+                  <a class="dropdown-item" th:href="@{comptesAdd}">Comptes</a>
+                  <a class="dropdown-item" th:href="@{AddEmploye}">Employe</a>
+                  <a class="dropdown-item" th:href="@{GroupeAdd}">Groupe</a>
+                  
+               
+               </div>
+            </li>
+         </ul>
+
+      </nav>
+
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+      </div>
+   </body>
+</html>
