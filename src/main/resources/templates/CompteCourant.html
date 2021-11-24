@@ -7,13 +7,19 @@
 </head>
 <body>
 <div th:replace="fragments/header :: header"></div>
+<div class="my-2 p-3 mx-auto bg-dark" style="width:400px;border:1px solid black">
+<h3 class="text-center text-light">Créer un Compte</h3>
 <form th:action="@{comptes}" method="post" th:object=${compte}>
-<input th:field="*{solde}">
-<input th:field="*{decouvert}">
-<select th:field="*{client.codeClient}">
+<label class="text-light">Solde</label>
+<input th:field="*{solde}" class="form-control">
+<label class="text-light">decouvert</label>
+<input th:field="*{decouvert}" class="form-control">
+<label class="text-light">Employe</label>
+<select th:field="*{client.codeClient}" class="form-select">
 <option  th:each="client : ${clients}"  th:value="${client.codeClient}" th:text="${client.nomClient}"></option>
 </select>
-<input type="submit">
+<input type="submit" class="btn btn-primary my-2" value="Créer Le Compte">
 </form>
+</div>
 </body>
 </html>

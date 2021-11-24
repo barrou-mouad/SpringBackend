@@ -29,7 +29,6 @@ public class GroupeMetierImpl implements GroupeMetier {
 
 	@Override
 	public Groupe save(Groupe g) {
-		// TODO Auto-generated method stub
 		return grp.save(g);
 	}
 

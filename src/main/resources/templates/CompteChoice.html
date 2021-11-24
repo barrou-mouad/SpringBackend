@@ -7,17 +7,17 @@
 </head>
 <body>
 <div th:replace="fragments/header :: header"></div>
-<h1>Choisis le type de compte que vou voulez creer:</h1>
+<h1 class="text-center">Choisir le type de compte</h1>
 
 <div class="card-group d-flex align-items-center  justify-content-center ">
 <a th:href="@{/compteCourantAdd}" class="btn card text-white bg-primary m-3 " style="max-width: 18rem;">
   <div class="card-header">Compte Courant</div>
   <div class="card-body">
 
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <p class="card-text text-center">Le compte courant est le dispositif bancaire dont se sert le client d'une banque pour ses achats, ses retraits et ses dépôts quotidiens. Le plus souvent, un compte courant s'oppose à un compte épargne : c'est bien souvent depuis le premier que le second est alimenté lorsqu'il s'agit de mettre de l'argent de côté.</p>
   </div>
 </a>
-<a th:href="@{/compteEpargneAdd}" class="btn card text-white bg-dark m-3" style="max-width: 18rem;">
+<a th:href="@{/compteEpargneAdd}" class="btn card text-white bg-dark m-3" style="max-width: 18rem;height:350px">
   <div class="card-header">Compte Epargne</div>
   <div class="card-body">
 

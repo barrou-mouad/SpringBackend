@@ -8,6 +8,8 @@ import org.lsi.dao.OperationRepository;
 import org.lsi.entities.Compte;
 import org.lsi.entities.Employe;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 //import org.springframework.data.domain.Page;
 //import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -68,23 +70,20 @@ public class OperationMetierImpl implements OperationMetier {
 		return true;
 	}
 
-//	@Override
-//	public PageOperation getOperation(String codeCompte, int page, int size) {
-//		
-//		Page<Operation> ops= operationRepository.getOperations(codeCompte, PageRequest.of(page, size));
-//		
-//		// 2 éme Solution
-//		//Compte cp = compteRepository.findById(codeCompte).orElse(null);
-//		//Page<Operation> ops2 = operationRepository.findByCompte(cp, (Pageable) new PageRequest(page, size));
-//		
-//		PageOperation pOp = new PageOperation();
-//		
-//			pOp.setOperations(ops.getContent());
-//			pOp.setNombreOperations(ops.getNumberOfElements());
-//			pOp.setPage(ops.getNumber());
-//			pOp.setTotalpages(ops.getTotalPages());
-//			
-//		return pOp;
-//	}
+	@Override
+	public PageOperation getOperation(String codeCompte, int page, int size) {
+		
+		Page<Operation> ops= operationRepository.getOperations(codeCompte, PageRequest.of(page, size));
+		
+		// 2 éme Solution
+		//Compte cp = compteRepository.findById(codeCompte).orElse(null);
+		//Page<Operation> ops2 = operationRepository.findByCompte(cp, (Pageable) new PageRequest(page, size));
+		PageOperation pOp = new PageOperation();
+			pOp.setOperations(ops.getContent());
+			pOp.setNombreOperations(ops.getNumberOfElements());
+			pOp.setPage(ops.getNumber());
+			pOp.setTotalpages(ops.getTotalPages());
+		    return pOp;
+	}
 
 }

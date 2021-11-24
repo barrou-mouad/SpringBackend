@@ -4,10 +4,11 @@
       <meta charset="utf-8">
       <title>Navbar Example</title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+      <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
    </head>
    <body>
    <div th:fragment="header">
-      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark container">
 
          <!-- Brand -->
          <a class="navbar-brand" href="#">BMC</a>

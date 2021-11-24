@@ -10,4 +10,5 @@ public interface CompteMetier {
 	public Compte getCompte(String code);
 	public List<Compte> getall();
 
+
 }

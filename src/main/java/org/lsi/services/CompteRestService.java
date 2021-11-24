@@ -6,9 +6,11 @@ import javax.websocket.server.PathParam;
 import org.lsi.entities.CompteEpargne;
 import org.lsi.entities.Client;
 import org.lsi.entities.Compte;
+import org.lsi.metier.PageOperation;
 import org.lsi.metier.ClientMetier;
 import org.lsi.metier.CompteMetier;
 import org.lsi.metier.CompteMetierImpl;
+import org.lsi.metier.OperationMetierImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,6 +31,8 @@ public class CompteRestService {
 	private CompteMetier compteMetier;
 	@Autowired
 	private ClientMetier client;
+	@Autowired
+	private OperationMetierImpl op;
 
 	@RequestMapping(value="/compteCourant", method=RequestMethod.POST)
 	public String saveCompte(@ModelAttribute CompteCourant cp ,Model model) {
@@ -77,9 +81,15 @@ public class CompteRestService {
 	}
 	// CompteDetails
 	@GetMapping("CompteDetails")
-	public String saveCompte1(@RequestParam(name="idCompte") String code,Model model) {
+	public String saveCompte1(@RequestParam(name="idCompte") String code,Model model,@RequestParam(name="page",defaultValue = "0") int page,@RequestParam(name="size",defaultValue = "3") int size) {
 		System.out.print(code);
-		model.addAttribute("compte", compteMetier.getCompte(code));
+		Compte cp=compteMetier.getCompte(code);
+		String type=cp instanceof CompteCourant ? "Courant" : "Epargne";
+		model.addAttribute("compte", cp);
+		model.addAttribute("type", type);
+		model.addAttribute("operations",op.getOperation(code, page, size));
+		model.addAttribute("pages",new int[op.getOperation(code, page, size).getTotalpages()]);
+		model.addAttribute("currentPage",page);
 	return 	"CompteDetails";	
 	}
 }
