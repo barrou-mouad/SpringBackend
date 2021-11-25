@@ -50,16 +50,16 @@ public class EmployeRestService {
 	   model.addAttribute("employes", employeMetier.listEmployes());
 	   return "EmpolyeList";
    }
-   @GetMapping("/mou")
-   public String EmployeIndex() {
-	   Employe e=new Employe("saloua1");
-	      List<Groupe> g=new ArrayList<Groupe>();
-	   g.add(grps.getById((long) 1));
-	   e.setGroupes(g);
-	   employeMetier.save(e);
-	   
-	   return "ClientDetails";
-   }
+//   @GetMapping("/mou")
+//   public String EmployeIndex() {
+//	   Employe e=new Employe("saloua1");
+//	      List<Groupe> g=new ArrayList<Groupe>();
+//	   g.add(grps.getById((long) 1));
+//	   e.setGroupes(g);
+//	   employeMetier.save(e);
+//	   
+//	   return "ClientDetails";
+//   }
    
    @GetMapping("/EmployeDelete")
    public String EmployeIndex(Model model,@RequestParam Long id) {
@@ -90,7 +90,7 @@ public class EmployeRestService {
 	   e.setEmployeSup(employeMetier.EmployeById(e.getEmployeSup().getCodeEmploye()));
 	   employeMetier.save(e);
 	   model.addAttribute("employes", employeMetier.listEmployes());
-	   return "EmpolyeList";
+	   return "redirect:/EmployeIndex";
    }
    
    
@@ -100,8 +100,7 @@ public class EmployeRestService {
 	   Employe e=employeMetier.EmployeById(emp.getEmployeSup().getCodeEmploye());
 	   emp.setEmployeSup(e);
 	   employeMetier.save(emp);
-	   System.out.println("HeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeLooooooo : 2");
 	   model.addAttribute("employes", employeMetier.listEmployes());
-	   return "EmpolyeList";
+	   return "redirect:/EmployeIndex";
    }
 }

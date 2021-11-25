@@ -81,7 +81,9 @@ public class CompteRestService {
 	}
 	// CompteDetails
 	@GetMapping("CompteDetails")
-	public String saveCompte1(@RequestParam(name="idCompte") String code,Model model,@RequestParam(name="page",defaultValue = "0") int page,@RequestParam(name="size",defaultValue = "3") int size) {
+	public String saveCompte1(@RequestParam(name="idCompte") String code,Model model,
+			@RequestParam(name="page",defaultValue = "0") int page,
+			@RequestParam(name="size",defaultValue = "3") int size) {
 		System.out.print(code);
 		Compte cp=compteMetier.getCompte(code);
 		String type=cp instanceof CompteCourant ? "Courant" : "Epargne";
