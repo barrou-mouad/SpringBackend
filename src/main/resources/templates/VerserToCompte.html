@@ -7,15 +7,17 @@
 </head>
 <body>
 <div th:replace="fragments/header :: header"></div>
-<form th:action="@{versement}" method="PUT" >
-<label>Montant</label>
-<input name="montant">
-<label>L'employe</label>
+<form th:action="@{versement}" class="mx-auto p-3 bg-dark my-5" method="PUT" style="width:350px" >
+<label class="text-white">code de Compte</label>
+<input class="form-control" th:value="${mycompte}" disabled>
+<label class="text-white">Montant (en DH)</label>
+<input class="form-control" name="montant">
+<label class="text-white">L'employe</label>
 <input type="hidden" name="code" th:value="${mycompte}">
-<select name="codeEmp">
+<select name="codeEmp" class="form-select mb-3">
 <option  th:each="employe : ${employes}"  th:value="${employe.codeEmploye}" th:text="${employe.nomEmploye}"></option>
 </select>
-<input type="submit">
+<input type="submit" class="btn btn-primary" value="Verser le solde">
 </form>
 </body>
 </html>

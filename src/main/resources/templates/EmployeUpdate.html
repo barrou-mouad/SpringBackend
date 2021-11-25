@@ -9,14 +9,15 @@
 
 <body>
 <div th:replace="fragments/header :: header"></div>
-<form method="post" th:action="@{/EmployeUpdate}" th:object="${employe}">
-<input th:field="*{codeEmploye}">
-<label ></label>
+<form method="post" th:action="@{/EmployeUpdate}" th:object="${employe}" class="mx-auto bg-dark p-3 mt-5" style="width:540px">
+<input type="hidden" th:field="*{codeEmploye}">
+<label class="text-light" >Nouveau nom</label>
 <input th:field="*{nomEmploye}" class="form-control">
-<select th:field="*{employeSup.codeEmploye}">
+<label class="text-light" >Employé supérieur</label>
+<select th:field="*{employeSup.codeEmploye}" class="form-select mb-3">
 <option  th:each="prod,iterStat : ${employes}"  th:value="${prod.codeEmploye}" th:text="${prod.nomEmploye}"></option>
 </select>
-<input type="submit">
+<input type="submit" class="btn btn-primary">
 </form>
 </body>
 

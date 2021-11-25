@@ -4,16 +4,17 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/css/mystyle.css}" rel="stylesheet">
 </head>
 
-<body class="" >
+<body  class="">
 
 <div th:replace="fragments/header :: header"></div>
-
+<h3 class="alert alert-dark p-3 my-1 rounded w-75 mx-auto text-center">Créer un client</h3>
 <div class="justify-content-center form-row align-items-center mx-auto  my-5 rounded radius-4 p-3 bg-dark" style="border:1px solid white;width:410px">
 <form  th:action="@{clients}" method="post" th:object="${client}">
 
-<h1 class="text-center text-light">Ajouter un client</h1>
+<h1 class="text-center text-light"></h1>
 
       <label for="inputName" class="col-sm-2 col-form-label text-light">Le nom</label>
       <input type="text" style="border:none" class="form-control" id="inputName" placeholder="nom" th:field="*{nomClient}">

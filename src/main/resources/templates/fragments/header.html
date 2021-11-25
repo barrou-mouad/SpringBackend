@@ -5,10 +5,11 @@
       <title>Navbar Example</title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
       <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+      <link th:href="@{/css/mystyle.css}" rel="stylesheet">
    </head>
    <body>
-   <div th:fragment="header">
-      <nav class="navbar navbar-expand-sm bg-dark navbar-dark container">
+   <div th:fragment="header" class="mycontainer" >
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark p-3">
 
          <!-- Brand -->
          <a class="navbar-brand" href="#">BMC</a>

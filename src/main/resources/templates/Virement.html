@@ -7,20 +7,22 @@
 </head>
 <body>
 <div th:replace="fragments/header :: header"></div>
-<form th:action="@{virement}" method="PUT" >
-<label>Montant</label>
-<input name="montant">
-<label>L'employe</label>
-<input type="hidden" name="cpte1" th:value="${mycompte}">
-<select name="codeEmp">
+<form th:action="@{virement}" method="PUT" class="bg-dark mx-auto p-3 my-5" style="width:350px">
+<label class="text-light">Code Compte</label>
+<input type="text"  class="form-control" name="cpte1" th:value="${mycompte}" disabled>
+<label class="text-light">Montant</label>
+<input name="montant"  class="form-control">
+<label class="text-light">L'employe</label>
+
+<select name="codeEmp" class="form-select">
 <option  th:each="employe : ${employes}"  th:value="${employe.codeEmploye}" th:text="${employe.nomEmploye}"></option>
 </select>
-
-<select name="cpte2">
-<option  th:each="compte : ${comptes}"  th:value="${compte.codeCompte}" th:text="${'Groupe '+ compte.CodeCompte}"></option>
+<label class="text-light  ">Le code de compte distiné</label>
+<select name="cpte2" class="form-select mb-3">
+<option  th:each="compte : ${comptes}"  th:value="${compte.codeCompte}" th:text="${ compte.CodeCompte}"></option>
 </select>
 
-<input type="submit">
+<input type="submit" class="btn btn-primary">
 </form>
 </body>
 </html>

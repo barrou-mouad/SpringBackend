@@ -7,12 +7,13 @@
 </head>
 <body>
 <div th:replace="fragments/header :: header"></div>
-<form th:action="@{retrait}" method="PUT" >
-<label>Montant</label>
-<input name="montant">
-<label>L'employe</label>
-<input type="hidden" name="code" th:value="${mycompte}">
-<select name="codeEmp">
+<form th:action="@{retrait}" method="PUT" class="bg-dark mx-auto p-3 my-5" style="width:350px">
+<label class="text-light">Code de Compte</label>
+<input type="text" disabled name="code" th:value="${mycompte}" class="form-control">
+<label class="text-light">Montant</label>
+<input name="montant" class="form-control">
+<label class="text-light">L'employe</label>
+<select name="codeEmp" class="form-select">
 <option  th:each="employe : ${employes}"  th:value="${employe.codeEmploye}" th:text="${employe.nomEmploye}"></option>
 </select>
 <!--
@@ -20,7 +21,7 @@
 <option  th:each="compte : ${comptes}"  th:value="${compte.codeCompte}" th:text="${'Groupe '+ compte.CodeCompte}"></option>
 </select>
 -->
-<input type="submit">
+<input type="submit" class="my-2 btn btn-primary">
 </form>
 </body>
 </html>

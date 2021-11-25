@@ -7,7 +7,8 @@
 </head>
 <body>
 <div th:replace="fragments/header :: header"></div>
-<h1 class="bg bg-dark p-3 text-white text-center radius-2">Créer un groupe</h1>
+
+<h3 class="alert alert-dark p-3 my-1 rounded w-75 mx-auto text-center">Créer un groupe</h3>
 <form th:action="@{AddGrupe}" method="post" class="mx-auto w-25 my-4" th:object="${groupe}">
 <label><b>Le nom de groupe</b></label>
 <input class="form-control my-2" th:field="*{nomGroupe}">
