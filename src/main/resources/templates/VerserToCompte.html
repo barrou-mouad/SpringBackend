@@ -7,6 +7,7 @@
 </head>
 <body>
 <div th:replace="fragments/header :: header"></div>
+<h3 class="alert alert-dark p-3 my-1 rounded w-75 mx-auto text-center">L'opération de versement</h3>
 <form th:action="@{versement}" class="mx-auto p-3 bg-dark my-5" method="PUT" style="width:350px" >
 <label class="text-white">code de Compte</label>
 <input class="form-control" th:value="${mycompte}" disabled>

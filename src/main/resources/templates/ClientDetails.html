@@ -2,28 +2,40 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Information sur Le client</title>
 <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
 </head>
 <body>
-<div th:replace="fragments/header :: header"></div>
-<h3 class="alert alert-dark p-3 my-1 rounded w-75 mx-auto text-center">Information sur Le client </h3>
+	<div th:replace="fragments/header :: header"></div>
+	<h3 class="alert alert-dark p-3 my-1 rounded w-75 mx-auto text-center">Information
+		sur Le client</h3>
 
-<table class="table text-center table-bordered w-75 mx-auto">
-<tr>
-<td>Le nom de client </td>
-<td> <span th:text="${client.nomClient}"></span></td>
-</tr>
-</table>
+	<table class="table text-center table-bordered w-75 mx-auto">
+		<tr>
+			<td>Le nom de client</td>
+			<td><span th:text="${client.nomClient}"></span></td>
+		</tr>
+		<tr>
+			<td>Le code de client</td>
+			<td><span th:text="${client.codeClient}"></span></td>
+		</tr>
+		<tr>
+			<td>Le nombre de compte</td>
+			<td><span th:text="${client.comptes.size}"></span></td>
+		</tr>
+	</table>
 
-<h3 class="alert alert-dark p-3 my-1 rounded w-75 mx-auto text-center">Les comptes du client </h3>
+	<h3 class="alert alert-dark p-3 my-1 rounded w-75 mx-auto text-center">Les
+		comptes du client</h3>
 
-<div class="list-group my-5  text-center table-bordered w-75 mx-auto">
+	<div class="list-group my-5  text-center table-bordered w-75 mx-auto">
 
-  <a th:each="groupe:${client.comptes}" th:href="@{CompteDetails (idCompte=${groupe.codeCompte})}"  class="list-group-item list-group-item-action"  ><span th:text="${'Compte numero ' + groupe.codeCompte}"></span></a>
+		<a th:each="groupe:${client.comptes}"
+			th:href="@{CompteDetails (idCompte=${groupe.codeCompte})}"
+			class="list-group-item list-group-item-action"><span
+			th:text="${'Compte numero ' + groupe.codeCompte}"></span></a>
 
-</div>
+	</div>
 
-<footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>

@@ -24,7 +24,7 @@ public class ClientRestService {
 	@RequestMapping(value="/clients",method=RequestMethod.POST)
 	public String saveClient(@ModelAttribute Client c) {
     clientMetier.saveClient(c);
-    return "redirect:/clients";
+    return "redirect:/clientAdd";
 	}
 	
 

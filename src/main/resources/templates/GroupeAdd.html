@@ -2,18 +2,33 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Ajouter un groupe</title>
 <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
 </head>
 <body>
 <div th:replace="fragments/header :: header"></div>
 
-<h3 class="alert alert-dark p-3 my-1 rounded w-75 mx-auto text-center">Créer un groupe</h3>
-<form th:action="@{AddGrupe}" method="post" class="mx-auto w-25 my-4" th:object="${groupe}">
-<label><b>Le nom de groupe</b></label>
-<input class="form-control my-2" th:field="*{nomGroupe}">
-<input type="submit" class="btn btn-success">
+<h3 class="alert alert-dark p-3 my-1 rounded w-75 mx-auto text-center">Ajouter un groupe</h3>
+
+<div class="justify-content-center form-row align-items-center mx-auto  my-5 rounded radius-4 p-3 bg-dark" style="border:1px solid white;width:410px">
+<form  th:action="@{AddGrupe}" method="post" th:object="${groupe}">
+
+<h1 class="text-center text-light"></h1>
+
+      <label for="inputName" class="col-sm-2 col-form-label text-light">Le nom</label>
+      <input type="text" style="border:none" class="form-control" id="inputName" placeholder="nom" th:field="*{nomGroupe}">
+   
+
+
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-primary mt-2">Ajouter</button>
+    </div>
+  </div>
+
 </form>
+  </div>
+
 <footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>

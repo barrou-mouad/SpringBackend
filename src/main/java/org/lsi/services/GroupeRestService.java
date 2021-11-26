@@ -45,7 +45,7 @@ public String GroupeList(Model model) {
 public String GroupeAdd(Model model) {
 
 	model.addAttribute("groupe",new Groupe());
-	return "redirect:/GroupeList";
+	return "GroupeAdd";
 }
 
 @GetMapping("/GroupeDetails")

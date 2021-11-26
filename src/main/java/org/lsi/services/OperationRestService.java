@@ -42,14 +42,15 @@ public class OperationRestService {
 			@RequestParam double montant,
 			@RequestParam Long codeEmp) {
 		 operationMetier.verser(code, montant, codeEmp);
-		 return "index";
-	}
+		 return  "redirect:/CompteDetails?idCompte="+code;
+		 }
+	
 	@RequestMapping(value="/retrait",method=RequestMethod.GET) 
 	public String retirer(
 			@RequestParam String code,
 			@RequestParam double montant,
 			@RequestParam Long codeEmp) {
-	if( operationMetier.retirer(code, montant, codeEmp)) 	return "index";
+	if( operationMetier.retirer(code, montant, codeEmp)) 	return "redirect:/CompteDetails?idCompte="+code;
 	else return "erreur";	
 	}
 	@RequestMapping(value="/virement",method=RequestMethod.GET) 
@@ -59,7 +60,7 @@ public class OperationRestService {
 			@RequestParam double montant,
 			@RequestParam Long codeEmp) {
 		 operationMetier.virement(cpte1, cpte2, montant, codeEmp);
-		 return "index";
+		 return "redirect:/CompteDetails?idCompte="+cpte1;
 	} 
   @GetMapping("VerserPage")
   public String VerserPage(Model model,@RequestParam long idCompte) {

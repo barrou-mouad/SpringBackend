@@ -7,9 +7,10 @@
 </head>
 <body>
 <div th:replace="fragments/header :: header"></div>
+<h3 class="alert alert-dark p-3 my-1 rounded w-75 mx-auto text-center">L'opération de virement</h3>
 <form th:action="@{virement}" method="PUT" class="bg-dark mx-auto p-3 my-5" style="width:350px">
 <label class="text-light">Code Compte</label>
-<input type="text"  class="form-control" name="cpte1" th:value="${mycompte}" disabled>
+<input type="text"  class="form-control" name="cpte1" th:value="${mycompte}" >
 <label class="text-light">Montant</label>
 <input name="montant"  class="form-control">
 <label class="text-light">L'employe</label>

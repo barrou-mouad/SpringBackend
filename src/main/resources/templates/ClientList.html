@@ -2,14 +2,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>La liste des clients</title>
 <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
 </head>
 <body>
 <div th:replace="fragments/header :: header"></div>
 
-<h3 class="alert alert-dark p-3 my-1 rounded w-75 mx-auto text-center">La liste du cients</h3>
-<div class="w-50 mx-auto ">
+<h3 class="alert alert-dark p-3 my-1 rounded w-75 mx-auto text-center">La liste des clients</h3>
+<div class="w-25 mx-auto ">
 
  
 <div class="list-group my-5">
@@ -18,7 +18,7 @@
 
 </div>
 </div>
-<div class="w-50 mx-auto"><a th:href="@{clientAdd}" class="btn btn-primary w-50 mx-auto">Ajouter un client</a></div>
-<footer th:replace="fragments/footer :: footer"></footer>
+<div class="w-25 mx-auto"><a th:href="@{clientAdd}" class="btn btn-primary w-50 mx-auto">Ajouter un client</a></div>
+
 </body>
 </html>

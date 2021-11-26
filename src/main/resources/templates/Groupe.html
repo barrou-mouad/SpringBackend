@@ -9,7 +9,7 @@
 <div th:replace="fragments/header :: header"></div>
 <h3 class="alert alert-dark p-3 my-1 rounded w-75 mx-auto text-center">Le groupe : <span th:text="${groupe.nomGroupe}"></span></h3>
 
-<div class="mx-auto bg-dark p-3 mt-5" style="width:540px">
+<div class="mx-auto bg-dark p-3 my-5" style="width:540px">
 
 <h3 class="text-light text-center">Les membres de groupe </h3>
 <ul  class="list-group my-2  mx-auto text-light">
@@ -28,10 +28,9 @@
 <select name="id_emp" class="form-select mb-3">
 <option  th:each="groupe:${grp}"  th:value="${groupe.codeEmploye}" th:text="${groupe.nomEmploye}"></option>
 </select>
-<input type="submit" class="btn btn-primary" value="Add to Group">
+<input type="submit" class="btn btn-primary" value="Affecter au groupe">
 </form>
 </div>
 
-<footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>

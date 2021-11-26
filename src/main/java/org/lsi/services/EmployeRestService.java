@@ -66,7 +66,7 @@ public class EmployeRestService {
 	   model.addAttribute("employes", employeMetier.listEmployes());
 	   employeMetier.deleteEmploye(id);
 	   model.addAttribute("employes", employeMetier.listEmployes());
-	   return "EmpolyeList";
+	   return  "redirect:/EmployeIndex";
    }
    
    @GetMapping("/EmployeEdit")

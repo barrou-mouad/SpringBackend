@@ -7,9 +7,10 @@
 </head>
 <body>
 <div th:replace="fragments/header :: header"></div>
+<h3 class="alert alert-dark p-3 my-1 rounded w-75 mx-auto text-center">L'opération de retrait</h3>
 <form th:action="@{retrait}" method="PUT" class="bg-dark mx-auto p-3 my-5" style="width:350px">
 <label class="text-light">Code de Compte</label>
-<input type="text" disabled name="code" th:value="${mycompte}" class="form-control">
+<input type="text"  name="code" th:value="${mycompte}" class="form-control">
 <label class="text-light">Montant</label>
 <input name="montant" class="form-control">
 <label class="text-light">L'employe</label>
