@@ -90,7 +90,7 @@ public class EmployeRestService {
 	   e.setEmployeSup(employeMetier.EmployeById(e.getEmployeSup().getCodeEmploye()));
 	   employeMetier.save(e);
 	   model.addAttribute("employes", employeMetier.listEmployes());
-	   return "redirect:/EmployeIndex";
+	   return "redirect:/AddEmploye";
    }
    
    

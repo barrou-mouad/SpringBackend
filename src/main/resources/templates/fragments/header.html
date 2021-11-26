@@ -12,16 +12,14 @@
       <nav class="navbar navbar-expand-sm bg-dark navbar-dark p-3">
 
          <!-- Brand -->
-         <a class="navbar-brand" href="#">BMC</a>
+         <a class="navbar-brand" href="#">MM Bank</a>
 
          <!-- Links -->
          <ul class="navbar-nav">
             <li class="nav-item">
-               <a class="nav-link" th:href="@{clientAdd}">khawya</a>
+               <a class="nav-link" th:href="@{home}">Home</a>
             </li>
-            <li class="nav-item">
-               <a class="nav-link" href="#">Home</a>
-            </li>
+
             <!-- Dropdown -->
             <li class="nav-item dropdown">
                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -30,8 +28,21 @@
                <div class="dropdown-menu">
                   <a class="dropdown-item" th:href="@{clientAdd}">Clients</a>
                   <a class="dropdown-item" th:href="@{comptesAdd}">Comptes</a>
-                  <a class="dropdown-item" th:href="@{AddEmploye}">Employe</a>
+                  <a class="dropdown-item" th:href="@{AddEmploye}">Employé</a>
                   <a class="dropdown-item" th:href="@{GroupeAdd}">Groupe</a>
+                  
+               
+               </div>
+            </li>
+            
+                        <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+               Consulter
+               </a>
+               <div class="dropdown-menu">
+                  <a class="dropdown-item" th:href="@{clients}">Clients</a>
+                  <a class="dropdown-item" th:href="@{EmployeIndex}">Employés</a>
+                  <a class="dropdown-item" th:href="@{GroupeAdd}">Groupes</a>
                   
                
                </div>

@@ -10,7 +10,7 @@
 <body  class="">
 
 <div th:replace="fragments/header :: header"></div>
-<h3 class="alert alert-dark p-3 my-1 rounded w-75 mx-auto text-center">Créer un client</h3>
+<h3 class="alert alert-dark p-3 my-1 rounded w-75 mx-auto text-center">Ajouter un client</h3>
 <div class="justify-content-center form-row align-items-center mx-auto  my-5 rounded radius-4 p-3 bg-dark" style="border:1px solid white;width:410px">
 <form  th:action="@{clients}" method="post" th:object="${client}">
 
@@ -29,6 +29,6 @@
 
 </form>
   </div>
-
 </body>
+  <footer th:replace="fragments/footer :: footer"></footer>
 </html>

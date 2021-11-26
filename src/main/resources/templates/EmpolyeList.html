@@ -7,16 +7,16 @@
 </head>
 <body>
 <div th:replace="fragments/header :: header"></div>
+<h3 class="alert alert-dark p-3 my-1 rounded w-75 mx-auto text-center">La liste des employés</h3>
 <div class="container w-50 mx-auto my-5">
 <table class="table table-bordered text-center">
-<tr  ><th>Employe</th><th>Employe supérieur </th><th>Actions</th></tr>
+<tr  ><th>Employé</th><th>Employé supérieur </th><th>Actions</th></tr>
 <tr th:each="prod,iterStat : ${employes}"><td th:text="${prod.nomEmploye}"></td><td th:if="${ prod.employeSup!=NULL }" th:text="${prod.employeSup.nomEmploye}"></td><td th:unless="${ prod.employeSup!=NULL }" th:text="${'pas de supérieur'}"></td><td><a class="btn btn-warning mr-1" th:href="@{EmployeEdit (id=${prod.codeEmploye})}">Modifier</a><a class="btn btn-danger" th:href="@{EmployeDelete (id=${prod.codeEmploye})}">Supprimer</a></td></tr>
 </table>
 
-<a class="btn btn-primary" th:href="@{/AddEmploye}">Ajouter un employe</a>
 </div>
 <!-- Button trigger modal -->
 
-
+<footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>

@@ -94,4 +94,10 @@ public class CompteRestService {
 		model.addAttribute("currentPage",page);
 	return 	"CompteDetails";	
 	}
+	
+	@GetMapping("/home")
+	public String show() {
+		return "homePage";
+	}
+	
 }

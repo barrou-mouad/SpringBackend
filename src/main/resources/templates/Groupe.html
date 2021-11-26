@@ -7,21 +7,17 @@
 </head>
 <body>
 <div th:replace="fragments/header :: header"></div>
+<h3 class="alert alert-dark p-3 my-1 rounded w-75 mx-auto text-center">Le groupe : <span th:text="${groupe.nomGroupe}"></span></h3>
+
 <div class="mx-auto bg-dark p-3 mt-5" style="width:540px">
-<h1 th:text="${groupe.nomGroupe}" class="text-center"></h1>
-<h3 class="text-light">Les membres de groupe </h3>
+
+<h3 class="text-light text-center">Les membres de groupe </h3>
 <ul  class="list-group my-2  mx-auto text-light">
 <li class="list-group-item " th:each="groupe:${groupe.employe}" th:text="${groupe.nomEmploye}"></li>
 
 </ul>
-<ul class="list-group">
-  <li th:each="groupe:${groupe.employe}"  class="list-group-item  d-flex justify-content-between align-items-center">
-    <span th:text="${groupe.nomEmploye}" class="text-light"></span>
-  </li>
-  
-</ul>
 <hr>
-Autre Employes
+<h3 class="text-light text-center">Les autres employés </h3>
 <ul class="my-2 list-group">
 
 <li th:each="groupe:${grp}" th:text="${groupe.nomEmploye}" class="list-group-item"></li>
@@ -36,6 +32,6 @@ Autre Employes
 </form>
 </div>
 
-
+<footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>

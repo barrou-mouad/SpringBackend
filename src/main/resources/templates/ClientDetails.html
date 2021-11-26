@@ -7,14 +7,23 @@
 </head>
 <body>
 <div th:replace="fragments/header :: header"></div>
-<h1 class="bg bg-success text-center my-5 text-white">Hello <span th:text="${client.nomClient}"></span></h1>
-<h3 class="alert alert-dark p-3 my-1 rounded w-75 mx-auto text-center">Information sur Le client</h3>
+<h3 class="alert alert-dark p-3 my-1 rounded w-75 mx-auto text-center">Information sur Le client </h3>
 
-<div class="list-group my-5">
- 
+<table class="table text-center table-bordered w-75 mx-auto">
+<tr>
+<td>Le nom de client </td>
+<td> <span th:text="${client.nomClient}"></span></td>
+</tr>
+</table>
+
+<h3 class="alert alert-dark p-3 my-1 rounded w-75 mx-auto text-center">Les comptes du client </h3>
+
+<div class="list-group my-5  text-center table-bordered w-75 mx-auto">
+
   <a th:each="groupe:${client.comptes}" th:href="@{CompteDetails (idCompte=${groupe.codeCompte})}"  class="list-group-item list-group-item-action"  ><span th:text="${'Compte numero ' + groupe.codeCompte}"></span></a>
 
 </div>
 
+<footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>
