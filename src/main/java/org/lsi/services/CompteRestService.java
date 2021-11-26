@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.websocket.server.PathParam;
 import org.lsi.entities.CompteEpargne;
+import org.lsi.entities.Operation;
+import org.lsi.entities.Versment;
 import org.lsi.entities.Client;
 import org.lsi.entities.Compte;
 import org.lsi.metier.PageOperation;
@@ -42,7 +44,7 @@ public class CompteRestService {
 	    compteMetier.saveCompte(cp);
 		model.addAttribute("compte",new CompteCourant());
 		model.addAttribute("clients",client.listClient());
-		return "CompteCourant";
+		return "redirect:/compteCourantAdd";
 	}
 	@RequestMapping(value="/compteEpargne", method=RequestMethod.POST)
 	public String saveCompte(@ModelAttribute CompteEpargne cp ,Model model) {
@@ -50,9 +52,7 @@ public class CompteRestService {
 		int last=(cs.size() - 1)+1;
 		cp.setCodeCompte(""+last);
 	    compteMetier.saveCompte(cp);
-		model.addAttribute("compte",new CompteEpargne());
-		model.addAttribute("clients",client.listClient());
-		return "CompteEpargne";
+		return "redirect:/compteEpargneAdd";
 	}
 	@RequestMapping(value="/comptes/{code}", method=RequestMethod.GET)
 	public Compte getCompte(@PathVariable String code) {
@@ -77,7 +77,7 @@ public class CompteRestService {
 	@PostMapping("SaveCourant")
 	public String saveCompte1(@ModelAttribute CompteCourant cmpt) {
 		System.out.print(cmpt.getSolde());
-	return 	"CompteCourant";	
+	return 	"redirect:/compteCourantAdd";	
 	}
 	// CompteDetails
 	@GetMapping("CompteDetails")
@@ -89,7 +89,12 @@ public class CompteRestService {
 		String type=cp instanceof CompteCourant ? "Courant" : "Epargne";
 		model.addAttribute("compte", cp);
 		model.addAttribute("type", type);
-		model.addAttribute("operations",op.getOperation(code, page, size));
+		List<Operation> ops=op.getOperation(code, page, size).getOperations();
+		for(Operation o:ops) {
+			if(!(o instanceof Versment ))  o.setMontant(-o.getMontant());
+		}
+		model.addAttribute("op",ops);
+		//model.addAttribute("operations",op.getOperation(code, page, size));
 		model.addAttribute("pages",new int[op.getOperation(code, page, size).getTotalpages()]);
 		model.addAttribute("currentPage",page);
 	return 	"CompteDetails";	
